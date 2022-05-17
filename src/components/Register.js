@@ -25,7 +25,7 @@ class Register extends React.Component {
         const {email, username, password} = this.state;
         firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
             const user = firebase.auth().currentUser;
-            user.updateProfile({displayname: username}).then(() => {
+            user.updateProfile({displayName: username}).then(() => {
                 this.props.history.push('/');
             })
             .catch(error => {

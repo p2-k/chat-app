@@ -9,7 +9,7 @@ class Login extends React.Component {
         this.state = {
             email: '',
             password: '',
-            error: null
+            error: null,
         }
     }
     handleChange = e => {
