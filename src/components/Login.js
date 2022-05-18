@@ -1,5 +1,7 @@
+/** @jsxImportSource theme-ui */
+import { ThemeProvider, Card, Text, Box, Container, Button, Input, Label, Alert } from 'theme-ui';
+import theme from '../theme';
 import React from 'react';
-import './Login.css';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
 
@@ -22,32 +24,48 @@ class Login extends React.Component {
         firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
             this.props.history.push('/');
         })
-        .catch(error => {
-            this.setState({ error });
-        });
+            .catch(error => {
+                this.setState({ error });
+            });
     }
     render() {
         const { email, password, error } = this.state;
         return (
-            <div className='auth-container'>
-                <h1>Login</h1>
-                <p>Login to access your account</p>
-                {error && <p className='error-message'>{error.message}</p>}
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="email">Email address</label>
-                    <input type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={password}
-                        onChange={this.handleChange}>
-                    </input>
-                    <button className='submit'>Login</button>
-                    <p>Don't have an account? <Link className="login-btn" to="/register">Register here</Link></p>
-                </form>
-            </div>
+            <ThemeProvider theme={theme}>
+                <Container sx={{ maxWidth: ['100%', '80%', '1200px'], bg: 'muted', p: 4 }} className='auth-container'>
+                    <h1>Log in</h1>
+                    <p>Enter your details to access your account</p>
+                    {error && <Alert className='error-message'>{error.message}</Alert>}
+                    <Card p={4}>
+                        <form onSubmit={this.handleSubmit}>
+                            <Label htmlFor="email" sx={{ fontWeight: 'bold' }}>Email address</Label>
+                            <Input
+                                type="text"
+                                name="email"
+                                id="email"
+                                value={email}
+                                onChange={this.handleChange}
+                                sx={{ width: ['95%', '36em'], mb: 2 }}>
+                            </Input>
+                            <Label htmlFor="password" sx={{ fontWeight: 'bold' }}>Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                id="password"
+                                value={password}
+                                onChange={this.handleChange}
+                                sx={{ width: ['95%', '36em'], mb: 2 }}>
+                            </Input>
+                            <Button mt={2} className='submit'>Log in</Button>
+                            <p>
+                                Don't have an account?
+                                <Link className="login-btn" to="/register" sx={{ color: 'purple', ml:2 }}>
+                                Register here</Link>
+                            </p>
+                        </form>
+                    </Card>
+                </Container>
+            </ThemeProvider>
         );
     }
 }

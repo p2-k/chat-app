@@ -1,13 +1,16 @@
+/** @jsxImportSource theme-ui */
+import { Container, NavLink } from 'theme-ui';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './components/Login';
 import Register from './components/Register';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import reactRouterDom from 'react-router-dom';
-import firebase, { auth, provider } from './firebase.js'
+import firebase, { auth, provider } from './firebase.js';
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -28,24 +31,31 @@ class AppRouter extends React.Component {
   render() {
     return (
       <Router>
-        <div className='app'>
-          <nav className='main-nav'>
-            {!this.state.user &&
-              <div>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-              </div>
-            }
-            {this.state.user &&
-              <a href="#!" onClick={this.logOutUser}>Log out</a>
-            }
-          </nav>
-          <Switch>
-            <Route path="/" exact render={() => <App user={this.state.user}/>} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
-          </Switch>
-        </div>
+        <Container py={2} className='app'>
+            <nav className='main-nav' sx={{textAlign:'center', p:2}}>
+              {!this.state.user &&
+                <div>
+                  <Link to="/login"><NavLink sx={{fontSize:1 ,px:4, transition: 'all 0.3s', 
+                    '&:hover':{ fontSize:3, color:'black'}}}>Log in
+                    </NavLink></Link>
+                  <Link to="/register"><NavLink sx={{fontSize:1 ,px:4, transition: 'all 0.3s', 
+                    '&:hover':{ fontSize:3, color:'black'}}}>Register
+                    </NavLink></Link>
+                </div>
+              }
+              {this.state.user &&
+                <a href="#!"  onClick={this.logOutUser}>
+                  <NavLink sx={{fontSize:1 ,px:4, transition: 'all 0.3s', 
+                '&:hover':{ fontSize:3, color:'black'}}}>Log out</NavLink></a>
+              }
+            </nav>
+            <Switch>
+              <Route path="/" exact render={() => <App user={this.state.user}/>} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/register" exact component={Register} />
+            </Switch>
+
+        </Container>
       </Router>
     );
   }
