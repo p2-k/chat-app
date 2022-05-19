@@ -38,8 +38,8 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={mytheme}>
         <Container sx={{maxWidth:['100%','80%','1200px']}} bg="white" className="App">
-        <Box p={2} color="white" bg="gray"><h1 sx={{fontSize:48, fontWeight:'heading', textAlign:'center', mb:0}}>p2's chat room </h1> 
-        <h2 sx={{color:'highlight', fontSize:24, textAlign:'center', pt:0,mt:0}}>for cool people only</h2></Box>
+        <Box p={2} color="white" bg="gray"><h1 sx={{fontSize:[32,48], m:[0,2], fontWeight:'heading', textAlign:'center', mb:0}}>p2's chat room </h1> 
+        <h2 sx={{color:'highlight', fontSize:[16,24], textAlign:'center', pt:0,mt:0}}>for cool people only</h2></Box>
           {this.props.user &&
             <div className='allow-chat' >
               <Box p={4} bg="muted" as="form" className="message-form" onSubmit={this.onSubmit}>
@@ -61,7 +61,7 @@ class App extends React.Component {
               <Box sx={{ p:4, bg:"muted", textAlign:'center' }}>
                 <Card p={4} pb={2} mt={3}>
                   <Link to="/login"><Button variant='primary'>Log in</Button></Link> 
-                  <Text p={4}>or</Text>
+                  <Text p={[1,4]}>or</Text>
                   <Link to="/register"><Button variant='secondary'>Register</Button></Link>
                   <p>to start chatting!</p>
                   </Card>

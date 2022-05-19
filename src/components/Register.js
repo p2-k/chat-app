@@ -78,7 +78,7 @@ class Register extends React.Component {
                             <Button className='submit'>Get started</Button>
                             <p>
                                 Already have an account?
-                                <Link className="login-btn" to="/login" sx={{ color: 'purple', ml: 2 }}>
+                                <Link className="login-btn" to="/login" sx={{ color: 'purple', ml: 2, whiteSpace: 'nowrap' }}>
                                     Log in here
                                 </Link>
                             </p>

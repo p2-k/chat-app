@@ -4,6 +4,7 @@ import { mytheme } from '../theme.ts';
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
+import { isWhiteSpaceLike } from 'typescript';
 
 class Login extends React.Component {
     constructor(props) {
@@ -59,7 +60,7 @@ class Login extends React.Component {
                             <Button mt={2} className='submit'>Log in</Button>
                             <p>
                                 Don't have an account?
-                                <Link className="login-btn" to="/register" sx={{ color: 'purple', ml:2 }}>
+                                <Link className="login-btn" to="/register" sx={{ color: 'purple', ml:2, whiteSpace: 'nowrap'}}>
                                 Register here</Link>
                             </p>
                         </form>
