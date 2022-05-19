@@ -4,7 +4,6 @@ import { mytheme } from '../theme.ts';
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
-import { isWhiteSpaceLike } from 'typescript';
 
 class Login extends React.Component {
     constructor(props) {
