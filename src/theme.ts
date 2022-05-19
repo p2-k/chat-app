@@ -1,11 +1,12 @@
+import type { Theme } from 'theme-ui'
 import theme from '@theme-ui/preset-swiss'
 
-export default {
-    ...theme, 
+export const mytheme: Theme = {
+    ...theme,     
   styles: {
-    ...theme,
+    ...theme.styles,
   },
-
+  
   cards: {
     primary: {
       padding: 1,
@@ -36,5 +37,8 @@ export default {
       }
     },
   },
+
+
   breakpoints: [56, 96, 128].map((n) => n + 'em')
 }
+

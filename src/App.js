@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { ThemeProvider, Box, Container, Text, Button, Input, Label, Card } from 'theme-ui';
-import theme from './theme';
+import {mytheme} from './theme.ts';
 
 import React from 'react';
 import Chatbox from './components/Chatbox';
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={mytheme}>
         <Container sx={{maxWidth:['100%','80%','1200px']}} bg="white" className="App">
         <Box p={2} color="white" bg="gray"><h1 sx={{fontSize:48, fontWeight:'heading', textAlign:'center', mb:0}}>p2's chat room </h1> 
         <h2 sx={{color:'highlight', fontSize:24, textAlign:'center', pt:0,mt:0}}>for cool people only</h2></Box>

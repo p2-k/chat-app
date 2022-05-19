@@ -1,11 +1,10 @@
 /** @jsxImportSource theme-ui */
-import { ThemeProvider, Card, Text, Box, Container, Button, Input, Label, Alert } from 'theme-ui';
-import theme from '../theme';
+import { ThemeProvider, Card, Container, Button, Input, Label, Alert } from 'theme-ui';
+import { mytheme } from '../theme.ts';
 
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
-import Login from './Login';
 
 class Register extends React.Component {
 
@@ -42,7 +41,7 @@ class Register extends React.Component {
     render() {
         const { email, username, password, error } = this.state;
         return (
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={mytheme}>
 
                 <Container sx={{ maxWidth: ['100%', '80%', '1200px'], bg: 'muted', p: 4 }} className='auth-container'>
                     <h1>Register your account</h1>

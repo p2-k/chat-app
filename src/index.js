@@ -9,8 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './components/Login';
 import Register from './components/Register';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import reactRouterDom from 'react-router-dom';
-import firebase, { auth, provider } from './firebase.js';
+import firebase, { auth } from './firebase.js';
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -25,8 +24,7 @@ class AppRouter extends React.Component {
     })
   }
   logOutUser = () => {
-    firebase.auth().signOut()
-      .then(window.location = "/");
+    firebase.auth().signOut().then(window.location = "/");
   }
   render() {
     return (
@@ -49,6 +47,7 @@ class AppRouter extends React.Component {
                 '&:hover':{ fontSize:3, color:'black'}}}>Log out</NavLink></a>
               }
             </nav>
+
             <Switch>
               <Route path="/" exact render={() => <App user={this.state.user}/>} />
               <Route path="/login" exact component={Login} />

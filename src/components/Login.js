@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
-import { ThemeProvider, Card, Text, Box, Container, Button, Input, Label, Alert } from 'theme-ui';
-import theme from '../theme';
+import { ThemeProvider, Card, Container, Button, Input, Label, Alert } from 'theme-ui';
+import { mytheme } from '../theme.ts';
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,7 @@ class Login extends React.Component {
     render() {
         const { email, password, error } = this.state;
         return (
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={mytheme}>
                 <Container sx={{ maxWidth: ['100%', '80%', '1200px'], bg: 'muted', p: 4 }} className='auth-container'>
                     <h1>Log in</h1>
                     <p>Enter your details to access your account</p>
